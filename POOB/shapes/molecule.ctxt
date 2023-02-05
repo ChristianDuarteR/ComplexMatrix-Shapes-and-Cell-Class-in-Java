@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=molecule
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ molecule\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=conectorC\ conectorS
+comment1.target=molecule(char,\ char)
+comment1.text=\r\n\ Constructor\ fo\ class\ molecule\ with\ connectors\r\n
+comment2.params=conectorC
+comment2.target=void\ setConectorC(char)
+comment3.params=conectorS
+comment3.target=void\ setConectorS(char)
+comment4.params=position
+comment4.target=char\ getConector(int)
+comment5.params=
+comment5.target=void\ makeVisible()
+numComments=6
