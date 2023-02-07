@@ -15,6 +15,11 @@ public class molecule extends Figure
      * Constructor fo class molecule with connectors
      */
     public molecule(String conector12, String conector3, String conector6, String conector9){
+        this.conector12 = conector12;
+        this.conector3 = conector3;
+        this.conector6 = conector6;
+        this.conector9 = conector9;
+        
         cuadradoGrande.changeColor("black");
         cuadradoPequeño.changeColor("white");
         cuadradoPequeño.xPosition = cuadradoGrande.xPosition + 3;
@@ -22,10 +27,10 @@ public class molecule extends Figure
         cuadradoPequeño.height = cuadradoGrande.height-6;
         cuadradoPequeño.width = cuadradoGrande.width-6;
         
-        conector12+="12";
-        conector3+="3";
-        conector6+="6";
-        conector9+="9";
+        conector12+='1';
+        conector3+='3';
+        conector6+='6';
+        conector9+='9';
         
         this.makeVisible();
         this.setConector(conector12);
@@ -35,7 +40,7 @@ public class molecule extends Figure
         
     }
     
-    public void setConector(String conector){
+    private void setConector(String conector){
         
         Rectangle conectorType1 = new Rectangle();
         conectorType1.height=5;
@@ -91,19 +96,21 @@ public class molecule extends Figure
     
     public void pintarConector1(String conector, Rectangle conectorType){
         switch(conector.charAt(2)){
-            case '1':
-                conectorType.xPosition = -6 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
-                conectorType.yPosition = -5 + cuadradoGrande.yPosition + (cuadradoGrande.height);
+            case '6':
+                conectorType.xPosition = -7 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
+                conectorType.yPosition = -9 + cuadradoGrande.yPosition + (cuadradoGrande.height);
                 break;
             case '3':
-                conectorType.xPosition = -11 + cuadradoGrande.xPosition + (cuadradoGrande.width);
-                conectorType.yPosition = -3 + cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
+                conectorType.xPosition = -9 + cuadradoGrande.xPosition + (cuadradoGrande.width);
+                conectorType.yPosition = -5 + cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
                 break;
-            case '6':
-                conectorType.xPosition = -6 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
+            case '1':
+                conectorType.xPosition = -7 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
+                conectorType.yPosition = 4 +cuadradoGrande.yPosition; 
                 break;
             case '9':
-                conectorType.yPosition = -3 + cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
+                conectorType.xPosition = 4 +cuadradoGrande.xPosition;
+                conectorType.yPosition = -5 + cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
                 break;
         }
         conectorType.makeVisible();
@@ -111,19 +118,21 @@ public class molecule extends Figure
     
     public void pintarConector2(String conector, Figure conectorType){
         switch(conector.charAt(2)){
-            case '1':
-                conectorType.xPosition = cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
-                conectorType.yPosition = cuadradoGrande.yPosition + (cuadradoGrande.height);
+            case '6':
+                conectorType.xPosition = 2 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
+                conectorType.yPosition = -9 + cuadradoGrande.yPosition + (cuadradoGrande.height);
                 break;
             case '3':
-                conectorType.xPosition = cuadradoGrande.xPosition + (cuadradoGrande.width);
-                conectorType.yPosition = cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
+                conectorType.xPosition = -9 + cuadradoGrande.xPosition + (cuadradoGrande.width);
+                conectorType.yPosition =  2 + cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
                 break;
-            case '6':
-                conectorType.xPosition = cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
+            case '1':
+                conectorType.xPosition = 2 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
+                conectorType.yPosition = 4 + cuadradoGrande.yPosition;
                 break;
             case '9':
-                conectorType.yPosition = cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
+                conectorType.xPosition = 4 + cuadradoGrande.xPosition;
+                conectorType.yPosition = 2 + cuadradoGrande.yPosition + (cuadradoGrande.height)/2;
                 break;
         }
         conectorType.makeVisible();
