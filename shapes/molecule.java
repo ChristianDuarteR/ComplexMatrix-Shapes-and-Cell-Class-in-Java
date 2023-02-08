@@ -33,20 +33,16 @@ public class molecule
         conector9+= '9';
         
         this.makeVisible();
-        this.setConector(conector12);
-        this.setConector(conector3);
-        this.setConector(conector6);
-        this.setConector(conector9);
     }
     
     /**
      * Constructor fo class molecule with connectors
      */
     public molecule(String conector12, String conector3, String conector6, String conector9){
-        this.conector12 = conector12;
-        this.conector3 = conector3;
-        this.conector6 = conector6;
-        this.conector9 = conector9;
+        this.conector12 = conector12 + '1';
+        this.conector3 = conector3 + '3';
+        this.conector6 = conector6 + '6';
+        this.conector9 = conector9 + '9';
         
         cuadradoGrande.changeColor("black");
         cuadradoPequeño.changeColor("white");
@@ -54,18 +50,7 @@ public class molecule
         cuadradoPequeño.yPosition = cuadradoGrande.yPosition + 3;
         cuadradoPequeño.height = cuadradoGrande.height-6;
         cuadradoPequeño.width = cuadradoGrande.width-6;
-        
-        conector12+='1';
-        conector3+='3';
-        conector6+='6';
-        conector9+='9';
-        
-        this.makeVisible();
-        this.setConector(conector12);
-        this.setConector(conector3);
-        this.setConector(conector6);
-        this.setConector(conector9);
-        
+        this.makeVisible();    
     }
     
     /** 
@@ -314,14 +299,18 @@ public class molecule
     public void makeVisible(){
         cuadradoGrande.makeVisible();
         cuadradoPequeño.makeVisible();
+        this.setConector(conector12);
+        this.setConector(conector3);
+        this.setConector(conector6);
+        this.setConector(conector9);
     }
 
     /**
      * Makes the molecule invisible at the canvas.
      */
     public void makeInvisible(){
+        cuadradoPequeño.makeVisible();
         cuadradoGrande.makeInvisible();
-        cuadradoPequeño.makeInvisible();
     }
     
     public void erase(){
