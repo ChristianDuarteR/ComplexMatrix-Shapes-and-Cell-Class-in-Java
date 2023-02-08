@@ -27,10 +27,11 @@ public class molecule
         cuadradoPequeño.width = cuadradoGrande.width-6;
         
         setRandomsConectors();
-        conector12+= "1";
-        conector3+= "3";
-        conector6+= "6";
-        conector9+= "9";
+        conector12+= '1';
+        conector3+= '3';
+        conector6+= '6';
+        conector9+= '9';
+        
         this.makeVisible();
         this.setConector(conector12);
         this.setConector(conector3);
@@ -80,7 +81,7 @@ public class molecule
         conector9 = conectores1[getRamdomIndex(conectores1)] + conectores2[getRamdomIndex(conectores2)];
         
         
-        if (conector12.charAt(1)=='0'||conector12.charAt(1)=='*'){
+        if (conector12.charAt(1)=='0'|| conector12.charAt(1)=='*'){
             conector12 = conector12.substring(1) + conector12.substring(1);
         }
 
@@ -92,10 +93,10 @@ public class molecule
             conector6 = conector6.substring(1) + conector6.substring(1);
         }
         
-        if (conector9.charAt(1)=='0'||conector12.charAt(1)=='*'){
+        if (conector9.charAt(1)=='0'||conector9.charAt(1)=='*'){
             conector9 = conector9.substring(1) + conector9.substring(1);
         }
-
+        
     }
 
     
@@ -175,6 +176,10 @@ public class molecule
      * 
      */
     public void pintarConector1(String conector, Rectangle conectorType){
+        conector12+='1';
+        conector3+='3';
+        conector6+='6';
+        conector9+='9';
         switch(conector.charAt(2)){
             case '6':
                 conectorType.xPosition = -7 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
@@ -202,6 +207,10 @@ public class molecule
      * @Param conector(form) 
      */
     public void pintarConector2(String conector, Figure conectorType){
+        conector12+='1';
+        conector3+='3';
+        conector6+='6';
+        conector9+='9';
         switch(conector.charAt(2)){
             case '6':
                 conectorType.xPosition = 2 + cuadradoGrande.xPosition + (cuadradoGrande.width)/2;
@@ -261,7 +270,7 @@ public class molecule
                 conector9 = conectors[indexOf(conector9)+1] + conector9.substring(1);
             }
         }
-        
+
         setConector(conector12);
         setConector(conector3);
         setConector(conector6);
@@ -287,13 +296,13 @@ public class molecule
     public String getConector(int position){
         switch(position){
             case 12:
-                return conector12;
+                return conector12.substring(0,2);
             case 3:
-                return conector3;
+                return conector3.substring(0,2);
             case 6:
-                return conector6;
+                return conector6.substring(0,2);
             case 9:
-                return conector9;
+                return conector9.substring(0,2);
             default:
                 return "numero invalido";
         }
