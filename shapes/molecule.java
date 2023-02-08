@@ -21,6 +21,7 @@ public class molecule
     public molecule(){        
         cuadradoGrande.changeColor("black");
         cuadradoPequeño.changeColor("white");
+        
         cuadradoPequeño.xPosition = cuadradoGrande.xPosition + 3;
         cuadradoPequeño.yPosition = cuadradoGrande.yPosition + 3;
         cuadradoPequeño.height = cuadradoGrande.height-6;
@@ -105,7 +106,7 @@ public class molecule
         conectorType1.height=5;
         conectorType1.width=5;
 
-        switch(conector.charAt(0)){
+        switch(conector.toLowerCase().charAt(0)){
             case 'a':
                 conectorType1.changeColor("red");
                 break;
@@ -118,7 +119,7 @@ public class molecule
             case 'd':
                 conectorType1.changeColor("magenta");
                 break;
-            case 'e':
+            case 'e'    :
                 conectorType1.changeColor("orange");
                 break;
             case 'f':
@@ -160,7 +161,7 @@ public class molecule
      * @Param conector(form) 
      * 
      */
-    public void pintarConector1(String conector, Rectangle conectorType){
+    private void pintarConector1(String conector, Rectangle conectorType){
         conector12+='1';
         conector3+='3';
         conector6+='6';
@@ -191,7 +192,7 @@ public class molecule
      * @Param conector 
      * @Param conector(form) 
      */
-    public void pintarConector2(String conector, Figure conectorType){
+    private void pintarConector2(String conector, Figure conectorType){
         conector12+='1';
         conector3+='3';
         conector6+='6';
@@ -255,11 +256,7 @@ public class molecule
                 conector9 = conectors[indexOf(conector9)+1] + conector9.substring(1);
             }
         }
-
-        setConector(conector12);
-        setConector(conector3);
-        setConector(conector6);
-        setConector(conector9);
+        makeVisible();
     }
     
     /**
@@ -281,13 +278,13 @@ public class molecule
     public String getConector(int position){
         switch(position){
             case 12:
-                return conector12.substring(0,2);
+                return (conector12.substring(0,2)).toUpperCase();
             case 3:
-                return conector3.substring(0,2);
+                return (conector3.substring(0,2)).toUpperCase();
             case 6:
-                return conector6.substring(0,2);
+                return (conector6.substring(0,2)).toUpperCase();
             case 9:
-                return conector9.substring(0,2);
+                return (conector9.substring(0,2)).toUpperCase();
             default:
                 return "numero invalido";
         }
@@ -313,11 +310,8 @@ public class molecule
         cuadradoGrande.makeInvisible();
     }
     
-    public void erase(){
+    public void reflect(){
+        makeInvisible();
         
-    }
-    
-    public void draw(){
-    
     }
 }
