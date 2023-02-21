@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"ComplexMatrixCalculator"},{"p":"<Unnamed>","l":"ComplexNumber"},{"p":"<Unnamed>","l":"ComplexNumberTest"},{"p":"<Unnamed>","l":"Matrix"}];updateSearchResults();

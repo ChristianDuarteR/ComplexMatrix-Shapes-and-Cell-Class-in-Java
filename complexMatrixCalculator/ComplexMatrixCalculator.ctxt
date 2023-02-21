@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=ComplexMatrixCalculator
+comment0.text=\ ComplexMatrixCalculator.java\r\n\ \r\n\ @author\ CIS\ 2023-01\r\n
+comment1.params=
+comment1.target=ComplexMatrixCalculator()
+comment2.params=name
+comment2.target=void\ create(java.lang.String)
+comment2.text=\r\n\ @param\ name,\ the\ name\ of\ the\ new\ key\ at\ the\ TreemMap\r\n\ Create\ a\ new\ key\ for\ the\ TreeMap\ an\ then\ a\ value\ for\ that\ key\ which\ is\ null.\r\n
+comment3.params=name\ complexNumbers
+comment3.target=void\ assign(java.lang.String,\ double[][][])
+comment3.text=\r\n\ @param\ name,complexNumbers.\ \r\n\ if\ there\ is\ a\ key\ which\ name\ is\ the\ parameter\ then\ asign\ a\ new\ matirix\ to\ that\ key\ \ \ \r\n
+comment4.params=a\ b\ op\ c
+comment4.target=void\ assign(java.lang.String,\ java.lang.String,\ char,\ java.lang.String)
+comment4.text=\r\n\ @Param\ a,b,op,c\ the\ keys\ and\ the\ operator\r\n\ Takes\ the\ Matrixs\ that\ have\ been\ saved\ in\ our\ TreeMap\ and\ do\ the\ operation\ that\ op\ says\r\n\ The\ Op\ can\ be\ "+",\ "-"\ or\ "t"\ it\ we\ want\ to\ traspone\ our\ Matrix.\r\n\ The\ matrix\ that\ will\ be\ operate\ is\ "b\ with\ c"\ and\ it\ will\ save\ it\ in\ key\ "a".\r\n
+comment5.params=a\ op\ type\ b
+comment5.target=void\ assign(java.lang.String,\ char,\ char,\ java.lang.String)
+comment6.params=set
+comment6.target=void\ toString(java.lang.String)
+comment6.text=\r\n\ @param\ set,\ the\ key\ at\ the\ TreeMap\ that\ have\ an\ existing\ array\r\n\ Print\ that\ array\ like\ an\ array\ of\ ComplexNumbers.\r\n
+comment7.params=
+comment7.target=boolean\ ok()
+comment7.text=\r\n\ Says\ if\ the\ last\ operation\ has\ been\ done.\r\n\ @return\ false\ if\ the\ last\ operation\ was\ not\ successfull,\ else\ return\ true\r\n
+numComments=8
