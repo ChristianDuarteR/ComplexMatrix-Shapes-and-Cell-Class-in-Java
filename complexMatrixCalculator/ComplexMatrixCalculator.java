@@ -11,7 +11,7 @@ public class ComplexMatrixCalculator{
     private boolean wasGood; 
     
     public ComplexMatrixCalculator(){
-        
+        this.variables = new TreeMap<String,Matrix>();
     }
 
     /**
@@ -30,6 +30,7 @@ public class ComplexMatrixCalculator{
     public void assign(String name, double complexNumbers[][][] ){
           Matrix nuevaMatrix = new Matrix(complexNumbers);
           variables.put(name,nuevaMatrix);  
+          wasGood = true;
     }    
     
     /**
@@ -62,17 +63,39 @@ public class ComplexMatrixCalculator{
                 
             default:
                 wasGood = false;
+            }
         }
-        
+    
+    /**
+     * Takes two matrix in the TreeMap and then multiply them, takes c and put the results in another key 
+     */
+    public void multiply(String a,String b,String c){
+        Matrix miMatrix = variables.get(a).multiply(variables.get(b));
+        variables.put(c,miMatrix);
+        wasGood = true; 
+    }
+    /**
+     * @param a b c, the keys for the Matrix that will be special multiply
+     * Do an especial Multiply for a complexMatrix and save the result in another key c
+     */
+    public void ComplexMultiply(String a,String b, String c){
+        Matrix miMatrix = variables.get(a).ComplexMultiply(variables.get(b));
+        variables.put(c,miMatrix);
+        wasGood = true; 
     }
   
     //Assigns the value of an operation to a variable (unary matrix aggregation operations)
     // a := op type b
     //The operator characters are:  +, * 
     //The type characters are: r (row), c(column), a (all)
-    public void assign(String a, char op, char type, String b){
+    
+    // public void assign(String a, char op, char type, String b){
+        // Matrix nuevaMatrix;
+        // variables.get(b).setOp(op);
         
-    }    
+        // nuevaMatrix = variables.get(b).add(type);
+        // variables.put(a,nuevaMatrix);        
+    // }    
     
     /**
      * @param set, the key at the TreeMap that have an existing array
@@ -82,12 +105,12 @@ public class ComplexMatrixCalculator{
     
         Matrix impresa = variables.get(set);
         
-        for(int i=0;i<impresa.data.length;i++){
+        for(int i=0;i<impresa.rows;i++){
             
-            System.out.print("\n\t");
+            System.out.print("\n");
             
-            for(int j=0; j< impresa.data[i].length;j++){    
-                System.out.print(impresa.get(i,j).toString() + "   ");
+            for(int j=0; j< impresa.columns;j++){    
+                System.out.print("Numero Complejo " + (j+1) + ": " + impresa.get(i,j).toString() + "\n\n");
             }
         }
     }

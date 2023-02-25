@@ -5,6 +5,10 @@
 public class Matrix{
     
     protected double[][][] data;
+    protected int rows;
+    protected int columns;
+    protected int depth;
+    private char op;
    
     /**
      * @param data[][[][] the data with the valors of the matrix. 
@@ -12,6 +16,17 @@ public class Matrix{
      */
     public Matrix (double data[][][]) {
         this.data = data;
+        depth = data.length;
+        rows = data[0].length;
+        columns = data[0][0].length;
+    }
+    
+    public void setOp(char op){
+        this.op = op;
+    }
+    
+    public char getOp(){
+        return op;
     }
     
     /**
@@ -29,8 +44,22 @@ public class Matrix{
      * @return a ComplexNumber
      */
     public ComplexNumber get(int f, int c){
-        ComplexNumber MyNumber = new ComplexNumber(data[f][c][0],data[f][c][1]);
+        ComplexNumber MyNumber = new ComplexNumber(data[0][f][c],data[1][f][c]);
         return MyNumber;
+    }
+    
+    public Matrix ComplexMultiply(Matrix other){
+        
+        if(this.rows == other.columns){
+            for(int i=0;i<this.rows;i++){
+                for(int j=0;j<other.columns;j++){
+                    ComplexNumber miNumber = this.get(i,j).multiply(other.get(i,j));
+                    this.data[0][i][j] = miNumber.getReal();
+                    this.data[1][i][j] = miNumber.getImaginary();
+                }
+            }
+        }
+        return this;
     }
     
     /**
@@ -42,8 +71,8 @@ public class Matrix{
         
         for(int i=0;i<data.length;i++){
             for(int j=0;j<data[0].length;i++){
-                data[i][j][0] += m.data[i][j][0];
-                data[i][j][1] += m.data[i][j][1];
+                data[0][i][j] += m.data[0][i][j];
+                data[1][i][j] += m.data[1][i][j];
             }
         }
         return this;
@@ -56,36 +85,88 @@ public class Matrix{
      */
     public Matrix substract(Matrix m){
         
-        for(int i=0;i<data.length;i++){
-            for(int j=0;j<data[0].length;i++){
-                data[i][j][0] -= m.data[i][j][0];
-                data[i][j][1] -= m.data[i][j][1];
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<columns;i++){
+                data[0][i][j] -= m.data[0][i][j];
+                data[1][i][j] -= m.data[1][i][j];
             }
         }
         return this;
     }
     
     /**
-     * Traspone our Matrix (the rows will be our columns and the columns will be our rows)
+     * Traspone our Matrix if the Matrix has as rows as columns (the rows will be our columns and the columns will be our rows)
      * @return  Our transponed Matrix
      */
     public Matrix transpone(){
 
-        for(int i=0;i<data.length;i++){
-            for(int j=0;j<data[0].length;i++){
-                data[i][j][0] = data[j][i][0];
-                data[i][j][1] = data[j][i][1];
+        if(this.rows == this.columns){
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<columns;i++){
+                    data[0][i][j] = data[0][j][i];
+                    data[1][i][j] = data[1][j][i];
+                }
             }
+        }else{
+            return this;
         }
         return this;
     }
-
+    
+    
     /**
-     * @param rca indicates the type of the operation (r:row, c:column or a:all)
+     * @param other another object of type Matrix
+     * Multiply our matrix with another Matrix (if it is possible)
+     * @return our matrix that has been multiply (if it is possible);
      */
-    public Matrix add(char rca){
-        return this;
+    public Matrix multiply(Matrix other){
+        
+        Matrix nuevaMatrix;
+        double datos[][][] = new double[depth][rows][columns];
+        if (this.rows == other.columns){
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<other.columns;j++){
+                    for(int k=0;k<other.rows;k++){
+                        datos[0][i][j] = this.data[0][i][k]*other.data[0][k][j];
+                        datos[1][i][j] = this.data[1][i][k]*other.data[1][k][j];
+                    }
+                }
+            }
+        }
+        
+        nuevaMatrix = new Matrix(datos);
+        return nuevaMatrix;
     }
+    
+    // public Matrix multy(char rca){
+        // switch(rca){
+            // case 'r':
+                
+            // case 'c':
+                
+            // case 'a':
+        // }      
+        // return this;
+    // }
+    
+    // /**
+     // * @param rca indicates the type of the operation (r:row, c:column or a:all)
+     // */
+    // public Matrix add(char rca){
+        // if (op != '+'){
+            // this.multy(rca);
+        // }
+        
+        // switch(rca){
+            // case 'r':
+                
+            // case 'c':
+                
+            // case 'a':
+                
+        // }
+        // return this;
+    // }
     
     /**
      * @param other another Matrix to compare if our matrix and the other are equals

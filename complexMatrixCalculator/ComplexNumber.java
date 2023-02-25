@@ -22,7 +22,7 @@ public class ComplexNumber{
     
     /**
      * Returns the real part of this complex number
-     * @return
+     * @return the real part
      */
     
     public double getReal(){
