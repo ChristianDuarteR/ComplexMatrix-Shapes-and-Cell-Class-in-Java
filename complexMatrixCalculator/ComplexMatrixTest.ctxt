@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=ComplexMatrixTest
+comment0.text=\r\n\ The\ test\ class\ ComplexMatrixTest.\r\n\r\n\ @author\ \ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ ShouldCreateAkey()
+comment2.params=
+comment2.target=void\ ShouldAssingAmatrixToAnExistingKey()
+comment3.params=
+comment3.target=void\ ShouldKnowWhenAKeyHasAMatrix()
+comment4.params=
+comment4.target=void\ ShouldKnowWhenHaveTwoSimilarMatrix()
+comment5.params=
+comment5.target=void\ ShouldAssignANewOperatedMatrix()
+numComments=6

@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /**
  * @author ECI, 2023
  *
@@ -15,10 +17,14 @@ public class Matrix{
      * Create a new matrix. If there is an error in the data, {{{0,0}}} is assumed
      */
     public Matrix (double data[][][]) {
-        this.data = data;
+        setData(data);
         depth = data.length;
         rows = data[0].length;
         columns = data[0][0].length;
+    }
+    
+    public void setData(double data[][][]){
+        this.data = data;
     }
     
     public void setOp(char op){
@@ -48,7 +54,9 @@ public class Matrix{
         return MyNumber;
     }
     
-    public Matrix ComplexMultiply(Matrix other){
+    public Matrix ComplexMultiply(double[][][] datos){
+        
+        Matrix other = new Matrix(datos);
         
         if(this.rows == other.columns){
             for(int i=0;i<this.rows;i++){
@@ -67,12 +75,14 @@ public class Matrix{
      * Sum two matrix 
      * @return our matrix that has been sum.
      */
-    public Matrix add(Matrix m){
-        
-        for(int i=0;i<data.length;i++){
-            for(int j=0;j<data[0].length;i++){
-                data[0][i][j] += m.data[0][i][j];
-                data[1][i][j] += m.data[1][i][j];
+    public Matrix add(double[][][] datos){
+        Matrix m = new Matrix(datos);
+        if(depth ==2){
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<columns;j++){
+                    data[0][i][j] += m.data[0][i][j];
+                    data[1][i][j] += m.data[1][i][j];
+                }
             }
         }
         return this;
@@ -83,12 +93,14 @@ public class Matrix{
      * substract two matrix 
      * @return our matrix that has been substract.
      */
-    public Matrix substract(Matrix m){
-        
-        for(int i=0;i<rows;i++){
-            for(int j=0;j<columns;i++){
-                data[0][i][j] -= m.data[0][i][j];
-                data[1][i][j] -= m.data[1][i][j];
+    public Matrix substract(double[][][] datos){
+        Matrix m = new Matrix(datos);
+        if(depth == 2){
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<columns;j++){
+                    data[0][i][j] -= m.data[0][i][j];
+                    data[1][i][j] -= m.data[1][i][j];
+                }
             }
         }
         return this;
@@ -102,12 +114,13 @@ public class Matrix{
 
         if(this.rows == this.columns){
             for(int i=0;i<rows;i++){
-                for(int j=0;j<columns;i++){
+                for(int j=0;j<columns;j++){
                     data[0][i][j] = data[0][j][i];
                     data[1][i][j] = data[1][j][i];
                 }
             }
         }else{
+            JOptionPane.showMessageDialog(null, "No se puede trasponer la matriz");
             return this;
         }
         return this;
@@ -119,9 +132,9 @@ public class Matrix{
      * Multiply our matrix with another Matrix (if it is possible)
      * @return our matrix that has been multiply (if it is possible);
      */
-    public Matrix multiply(Matrix other){
+    public Matrix multiply(double[][][] misDatos){
+        Matrix other = new Matrix(misDatos);
         
-        Matrix nuevaMatrix;
         double datos[][][] = new double[depth][rows][columns];
         if (this.rows == other.columns){
             for(int i=0;i<rows;i++){
@@ -132,10 +145,11 @@ public class Matrix{
                     }
                 }
             }
+            this.setData(datos);
+        }else{
+            JOptionPane.showMessageDialog(null, "No se puede multiplicar las matrices");
         }
-        
-        nuevaMatrix = new Matrix(datos);
-        return nuevaMatrix;
+        return this;
     }
     
     // public Matrix multy(char rca){
@@ -174,6 +188,7 @@ public class Matrix{
      * @return true if are equals, else false 
      */
     public boolean equals(Matrix other) {
+        
         for(int i = 0;i<data.length;i++){
             if(data[i] == other.data[i]){
                 
@@ -195,7 +210,12 @@ public class Matrix{
     
     @Override
     public boolean equals(Object otra) {
-            return equals((Matrix)otra);
+        if(otra instanceof Matrix){
+            return equals((Matrix)otra);           
+        }
+        else{
+            return false;
+        }
     }
     
     

@@ -10,8 +10,8 @@ public class ComplexNumberTest {
     @Test
     public void shouldCreateComplexNumbers() {
         ComplexNumber cn = new ComplexNumber(1234,567);
-        assertEquals(1234,cn.getReal());
-        assertEquals(567,cn.getImaginary());
+        assertEquals(1234,cn.getReal(),0.1);
+        assertEquals(567,cn.getImaginary(),0.1);
     }
 
 
@@ -29,12 +29,12 @@ public class ComplexNumberTest {
 
     @Test
     public void shouldRepresentAComplexNumberAsAString() {
-        assertEquals("1+2i", new ComplexNumber(1,2).toString());
-        assertEquals("-1+2i", new ComplexNumber(-1,2).toString());
-        assertEquals("-1-2i", new ComplexNumber(-1,-2).toString());
-        assertEquals("1", new ComplexNumber(1,0).toString());
-        assertEquals("3i", new ComplexNumber(0,3).toString());
-        assertEquals("-3i", new ComplexNumber(0,-3).toString());
+        assertEquals("1.0+2.0i", new ComplexNumber(1,2).toString());
+        assertEquals("-1.0+2.0i", new ComplexNumber(-1,2).toString());
+        assertEquals("-1.0-2.0i", new ComplexNumber(-1,-2).toString());
+        assertEquals("1.0", new ComplexNumber(1,0).toString());
+        assertEquals("3.0i", new ComplexNumber(0,3).toString());
+        assertEquals("-3.0i", new ComplexNumber(0,-3).toString());
         assertEquals("0", new ComplexNumber(0,0).toString());
     }    
     

@@ -7,9 +7,12 @@ import java.util.TreeMap;
     
 public class ComplexMatrixCalculator{
     
-    private TreeMap<String, Matrix> variables;
+    protected TreeMap<String, Matrix> variables;
     private boolean wasGood; 
     
+    /**
+     * Create a new TreeMap to save our ComplexMatrixs; 
+     */
     public ComplexMatrixCalculator(){
         this.variables = new TreeMap<String,Matrix>();
     }
@@ -44,13 +47,13 @@ public class ComplexMatrixCalculator{
         
         switch(op){
             case '+':
-                nuevaMatrix = variables.get(b).add(variables.get(c));
+                nuevaMatrix = variables.get(b).add(variables.get(c).data);
                 variables.put(a,nuevaMatrix);
                 wasGood = true;
                 break;
                 
             case '-':
-                nuevaMatrix = variables.get(b).substract(variables.get(c));
+                nuevaMatrix = variables.get(b).substract(variables.get(c).data);
                 variables.put(a,nuevaMatrix);
                 wasGood = true;
                 break;
@@ -70,7 +73,7 @@ public class ComplexMatrixCalculator{
      * Takes two matrix in the TreeMap and then multiply them, takes c and put the results in another key 
      */
     public void multiply(String a,String b,String c){
-        Matrix miMatrix = variables.get(a).multiply(variables.get(b));
+        Matrix miMatrix = variables.get(a).multiply(variables.get(b).data);
         variables.put(c,miMatrix);
         wasGood = true; 
     }
@@ -79,7 +82,7 @@ public class ComplexMatrixCalculator{
      * Do an especial Multiply for a complexMatrix and save the result in another key c
      */
     public void ComplexMultiply(String a,String b, String c){
-        Matrix miMatrix = variables.get(a).ComplexMultiply(variables.get(b));
+        Matrix miMatrix = variables.get(a).ComplexMultiply(variables.get(b).data);
         variables.put(c,miMatrix);
         wasGood = true; 
     }
@@ -113,6 +116,26 @@ public class ComplexMatrixCalculator{
                 System.out.print("Numero Complejo " + (j+1) + ": " + impresa.get(i,j).toString() + "\n\n");
             }
         }
+    }
+    
+    /**
+     * @param set the key at the TreeMap
+     * @param bandera using just for diference our methods 
+     * @return a string that represent the matrix 
+     */
+    public String toString(String set,boolean bandera){
+        Matrix miMatrix = variables.get(set);
+        String thisMatrix = "";
+
+        for(int i=0;i<miMatrix.rows;i++){
+            
+            thisMatrix+="\n";
+            
+            for(int j=0; j< miMatrix.columns;j++){    
+                thisMatrix+="Numero Complejo " + (j+1) + ": " + miMatrix.get(i,j).toString() + "\n\n";
+            }
+        }
+        return thisMatrix;
     }
     
     /**
