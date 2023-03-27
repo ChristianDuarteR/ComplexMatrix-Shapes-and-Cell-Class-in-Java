@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Heater
+comment0.text=\r\n\ The\ Heater\ class\ represents\ a\ heater\ object\ in\ a\ Cellular\ Automata\ simulation\ that\ implements\ the\ Item\ interface.\r\n\ The\ heater\ object\ changes\ its\ shape\ and\ color\ according\ to\ its\ current\ state\ and\ the\ state\ of\ the\ simulation.\r\n
+comment1.params=ac\ row\ column
+comment1.target=Heater(CellularAutomata,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ new\ Heater\ object\ and\ adds\ it\ to\ the\ specified\ CellularAutomata\ simulation.\r\n\r\n\ @param\ ac\ The\ CellularAutomata\ simulation\ to\ which\ the\ heater\ belongs.\r\n\ @param\ row\ The\ row\ index\ of\ the\ cell\ where\ the\ heater\ will\ be\ placed.\r\n\ @param\ column\ The\ column\ index\ of\ the\ cell\ where\ the\ heater\ will\ be\ placed.\r\n
+comment2.params=
+comment2.target=void\ decide()
+comment2.text=\r\n\ Determines\ the\ state\ of\ the\ heater\ based\ on\ the\ number\ of\ ticks\ that\ have\ passed\ since\ its\ creation.\r\n\ After\ 5\ ticks,\ the\ heater\ changes\ its\ shape\ to\ SQUARE,\ and\ after\ 15\ ticks,\ it\ changes\ its\ shape\ to\ ROUND.\r\n
+comment3.params=
+comment3.target=void\ change()
+comment3.text=\r\n\ Updates\ the\ color\ and\ shape\ of\ the\ heater\ in\ the\ simulation.\r\n
+comment4.params=
+comment4.target=java.awt.Color\ getColor()
+comment4.text=\r\n\ Returns\ the\ current\ color\ of\ the\ heater.\r\n\r\n\ @return\ The\ current\ color\ of\ the\ heater.\r\n
+comment5.params=
+comment5.target=int\ shape()
+comment5.text=\r\n\ Determines\ the\ current\ shape\ of\ the\ heater\ based\ on\ the\ number\ of\ ticks\ that\ have\ passed\ since\ its\ creation.\r\n\ The\ shape\ of\ the\ heater\ changes\ from\ SQUARE\ to\ ROUND\ every\ 15\ ticks.\r\n\r\n\ @return\ The\ current\ shape\ of\ the\ heater.\r\n
+numComments=6

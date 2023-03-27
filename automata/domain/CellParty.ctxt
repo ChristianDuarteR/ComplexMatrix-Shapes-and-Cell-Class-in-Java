@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=CellParty
+comment1.params=ac\ row\ column
+comment1.target=CellParty(CellularAutomata,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ new\ CellParty\ object\ with\ a\ random\ color.\r\n\r\n\ @param\ ac\ \ \ \ \ The\ CellularAutomata\ object.\r\n\ @param\ row\ \ \ \ The\ row\ where\ the\ cell\ is\ located.\r\n\ @param\ column\ The\ column\ where\ the\ cell\ is\ located.\r\n
+comment2.params=
+comment2.target=java.awt.Color\ partyColor()
+comment2.text=\r\n\ Generates\ a\ random\ color\ for\ the\ cell\ from\ a\ pre-defined\ list\ of\ colors.\r\n\r\n\ @return\ A\ randomly\ selected\ color.\r\n
+comment3.params=
+comment3.target=void\ setPartyAge()
+comment3.text=\r\n\ Resets\ the\ age\ of\ the\ cell\ to\ zero.\r\n
+comment4.params=
+comment4.target=void\ decide()
+comment4.text=\r\n\ Determines\ the\ state\ of\ the\ cell\ based\ on\ its\ current\ age.\r\n\ If\ the\ age\ is\ 20\ or\ more,\ the\ age\ is\ reset\ to\ zero.\r\n\ If\ the\ age\ is\ between\ 15\ and\ 20,\ the\ cell\ dies.\r\n\ Otherwise,\ the\ cell\ remains\ alive.\r\n
+comment5.params=
+comment5.target=void\ getTicTacs()
+comment5.text=\r\n\ Generates\ a\ new\ CellParty\ object\ at\ a\ random\ location\ in\ the\ CellularAutomata\ grid.\r\n
+numComments=6

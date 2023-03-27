@@ -1,16 +1,21 @@
 #BlueJ class context
 comment0.target=CellularAutomata
-comment0.text=No\ olviden\ adicionar\ la\ documentacion
 comment1.params=
 comment1.target=CellularAutomata()
+comment1.text=\r\n\ Constructor\ for\ CellularAutomata\ class.\r\n\ Creates\ a\ new\ grid\ of\ cells\ and\ initializes\ them\ to\ null.\r\n\ Also,\ it\ creates\ some\ predefined\ items\ in\ the\ grid.\r\n
 comment2.params=
 comment2.target=int\ getLength()
+comment2.text=\r\n\ Returns\ the\ length\ of\ the\ grid.\r\n\ @return\ the\ length\ of\ the\ grid\r\n
 comment3.params=r\ c
 comment3.target=Item\ getItem(int,\ int)
+comment3.text=\r\n\ Returns\ the\ item\ at\ a\ specific\ location\ in\ the\ grid.\r\n\ @param\ r\ the\ row\ index\ of\ the\ item\r\n\ @param\ c\ the\ column\ index\ of\ the\ item\r\n\ @return\ the\ item\ at\ the\ specified\ location\r\n
 comment4.params=r\ c\ e
 comment4.target=void\ setItem(int,\ int,\ Item)
+comment4.text=\r\n\ Sets\ the\ item\ at\ a\ specific\ location\ in\ the\ grid.\r\n\ @param\ r\ the\ row\ index\ of\ the\ item\r\n\ @param\ c\ the\ column\ index\ of\ the\ item\r\n\ @param\ e\ the\ item\ to\ be\ set\ at\ the\ specified\ location\r\n
 comment5.params=
 comment5.target=void\ someItems()
+comment5.text=\r\n\ Creates\ some\ predefined\ items\ in\ the\ grid.\r\n
 comment6.params=
 comment6.target=void\ ticTac()
+comment6.text=\r\n\ Advances\ the\ state\ of\ the\ grid\ by\ one\ time\ step.\r\n\ Calls\ the\ decide()\ and\ change()\ methods\ of\ each\ item\ in\ the\ grid.\r\n\ Also,\ updates\ the\ age\ of\ some\ items\ and\ randomly\ creates\ new\ items.\r\n
 numComments=7

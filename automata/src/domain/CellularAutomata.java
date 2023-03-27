@@ -1,17 +1,13 @@
 package domain;
 import java.util.*;
 
+
+/*No olviden adicionar la documentacion*/
 public class CellularAutomata{
     static private int LENGTH=30;
     private Item[][] automata;
     protected int ticTacs = 0;
     
-    
-    /**
-     * Constructor for CellularAutomata class.
-     * Creates a new grid of cells and initializes them to null.
-     * Also, it creates some predefined items in the grid.
-     */
     public CellularAutomata() {
         automata=new Item[LENGTH][LENGTH];
         for (int r=0;r<LENGTH;r++){
@@ -21,40 +17,19 @@ public class CellularAutomata{
         }
         someItems();
     }
-    
-    /**
-     * Returns the length of the grid.
-     * @return the length of the grid
-     */
+
     public int  getLength(){
         return LENGTH;
     }
 
-    
-    /**
-     * Returns the item at a specific location in the grid.
-     * @param r the row index of the item
-     * @param c the column index of the item
-     * @return the item at the specified location
-     */
     public Item getItem(int r,int c){
         return automata[r][c];
     }
-    
-    /**
-     * Sets the item at a specific location in the grid.
-     * @param r the row index of the item
-     * @param c the column index of the item
-     * @param e the item to be set at the specified location
-     */
+
     public void setItem(int r, int c, Item e){
         automata[r][c]=e;
     }
-    
-    
-    /**
-     * Creates some predefined items in the grid.
-     */
+
     public void someItems(){
         SociableCell celula = new SociableCell(this,0,0);
         SociableCell agamenon = new SociableCell(this,2,5);
@@ -69,11 +44,7 @@ public class CellularAutomata{
         Virus Daniel = new Virus(this,17,18);
     }
 
-    /**
-     * Advances the state of the grid by one time step.
-     * Calls the decide() and change() methods of each item in the grid.
-     * Also, updates the age of some items and randomly creates new items.
-     */
+    
     public void ticTac(){
         ticTacs++;
         
@@ -141,5 +112,8 @@ public class CellularAutomata{
         }
         
         
-    } 
+    }
+    
+    
+    
 }

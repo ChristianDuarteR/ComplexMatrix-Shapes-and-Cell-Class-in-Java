@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Virus
+comment0.text=\r\n\r\nThis\ class\ represents\ a\ Virus\ object\ that\ implements\ the\ Item\ interface.\r\nIt\ has\ a\ CellularAutomata\ object\ that\ represents\ the\ automata\ that\ contains\ the\ virus,\r\nits\ color,\ its\ row\ and\ column\ position\ and\ an\ array\ of\ its\ neighbors.\r\n
+comment1.params=ac\ row\ column
+comment1.target=Virus(CellularAutomata,\ int,\ int)
+comment1.text=\r\n\ Constructs\ a\ Virus\ object.\r\n\ \r\n\ @param\ ac\ The\ CellularAutomata\ object\ that\ contains\ the\ virus.\r\n\ @param\ row\ The\ row\ position\ of\ the\ virus.\r\n\ @param\ column\ The\ column\ position\ of\ the\ virus.\r\n
+comment2.params=
+comment2.target=java.awt.Color\ getColor()
+comment2.text=\r\n\ Gets\ the\ color\ of\ the\ virus.\r\n\ \r\n\ @return\ The\ color\ of\ the\ virus.\r\n
+comment3.params=
+comment3.target=void\ decide()
+comment3.text=\r\n\ Looks\ for\ the\ virus's\ neighbors.\r\n
+comment4.params=
+comment4.target=void\ lookNeights()
+comment4.text=\r\n\ Private\ method\ that\ looks\ for\ the\ virus'\ neighbors.\r\n
+comment5.params=
+comment5.target=void\ change()
+comment5.text=\r\n\ Changes\ the\ virus\ and\ its\ neighbors.\r\n
+comment6.params=
+comment6.target=void\ getTicTacs()
+comment6.text=\r\n\ Creates\ new\ viruses\ in\ the\ virus'\ empty\ neighbors.\r\n
+numComments=7
